@@ -22,7 +22,7 @@ class SigninHandler(BaseHandler):
     def post(self):
         account = self.get_argument('account', None)
         password = self.get_argument('password', None)
-        if not (account and password):
+        if not (account or password):
             self.create_message('Form Error', 'Please fill the required field')
             self.render('signin.html')
             return
